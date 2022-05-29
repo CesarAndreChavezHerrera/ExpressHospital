@@ -1,0 +1,34 @@
+
+<div class="row justify-content-md-center">
+    <center><h1 style="color:#5D8BF4;"  class="display-5" style="margin-top:20px ;">Nuevo Medico</h1></center></br>
+    <div class="col-md-4" style="margin-top:50px;">
+        {{#if message}}
+           <div class="alert {{messageClass}}">
+               {{message}}
+           </div>
+        {{/if}}
+        <form method="post" action="/register">
+
+        <div style="color:#2D31FA;" class="form-group">
+            Nombre Completo
+            <input type="text" name="fulln" id="fulln" class="form-control" placeholder="Luis Flores">
+        </div>
+
+        <div style="color:#2D31FA;" class="form-group">
+            Email
+            <input type="text" name="email" id="email" class="form-control" placeholder="nombre@example.com">
+        </div>
+
+        <div style="color:#2D31FA;" class="form-group">
+            Contraseña
+            <input type="password" name="password" id="password" class="form-control" placeholder="****">
+        </div>
+
+        <div style="color:#2D31FA;" class="form-group">
+            Confirmar Contraseña
+        <input type="password" name="cp" id="cp" class="form-control" placeholder="****">
+        </div></br>
+       <center><button  type="submit" style="background-color:#5D8BF4; border-color:#5D8BF4; color:#DFF6FF" class="btn btn-lg active">REGISTER</button></center> 
+        </form>
+    </div>
+</div>
