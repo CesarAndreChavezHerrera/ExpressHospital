@@ -12,11 +12,16 @@ router.get('/',(req,res)=>{
 
 
 router.get('/register',(req,res)=>{
+<<<<<<< HEAD
     
+=======
+    console.log("guardar")
+>>>>>>> 18b7edd7d218abff3b56785794e795f9fce0ca4d
     res.render('paciente/registrarPaciente')
 })
 
 router.post('/register',(req,res)=>{
+<<<<<<< HEAD
 
 
     var data = new Paciente()
@@ -66,5 +71,25 @@ router.post('/register',(req,res)=>{
 })
 
 
+=======
+    
+    new_data(req,res)
+})
+
+function new_data(req,res){
+    var data = new Paciente()
+    data.dui = req.body.dui
+    data.nombre = req.body.nombre
+    data.save((err)=>{
+        if(!err){
+            res.redirect('paciente')
+        }
+        else
+        {
+            console.log('error a guardar los datos')
+        }
+    })
+}
+>>>>>>> 18b7edd7d218abff3b56785794e795f9fce0ca4d
 
 module.exports = router
