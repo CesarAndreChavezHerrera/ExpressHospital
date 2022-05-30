@@ -4,14 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// control
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var pacienteControl = require('./routes/pacienteControl')
+
 var app = express();
+
+// coneccion a la base de dato
+
+var mongoose = require('mongoose')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/paciente',pacienteControl)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,4 +47,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+/// conecion a mongo
+mongoose.connect(
+  'mongodb://localhost:27017/HOSPITAL',
+  {
+      useNewUrlParser:true,
+      useUnifiedTopology:true
+  }
+  )
+  .then(
+      () =>
+      console.log('se ha establecido la conexion'))
+  .catch(e => console.log('error de conexion',e))
+  app.disable('etag');
 module.exports = app;

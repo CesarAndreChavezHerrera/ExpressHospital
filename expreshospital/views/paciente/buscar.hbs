@@ -1,0 +1,19 @@
+<h1>
+    buscar paciente
+</h1>
+<section>
+    <div class="col-md-4">
+        {{#if message}}
+            <div class="alert {{messageClass}}">
+                {{message}}
+            </div>
+        {{/if}}
+        <form action="/buscar" method="POST">
+            <div class="mb-3">
+                DUI
+                <input type="text" class="form-control" name="dui" />
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+</section>
