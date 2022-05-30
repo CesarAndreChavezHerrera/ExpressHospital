@@ -1,0 +1,23 @@
+<h1>
+    registrar datos
+</h1>
+<section>
+    <div class="col-md-4">
+        {{#if message}}
+            <div class="alert {{messageClass}}">
+                {{message}}
+            </div>
+        {{/if}}
+        <form action="/paciente" method="POST">
+            <div class="mb-3">
+                DUI
+                <input type="text" class="form-control" name="dui" />
+            </div>
+            <div class="mb-3">
+                nombre
+                <input type="text" class="form-control" name="nombre" />
+            </div>
+            <button type="submit" class="btn btn-primary">registrar</button>
+        </form>
+    </div>
+</section>
